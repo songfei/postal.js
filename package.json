@@ -1,16 +1,16 @@
 {
-  "name": "postal",
-  "description": "Pub/Sub library providing wildcard subscriptions, complex message handling, etc.  Works server and client-side.",
+  "name": "postal.subscriber",
+  "description": "Pub/Sub library providing wildcard subscriptions, complex message handling, etc.  Works server and client-side. Modify to send message to a subscriber separately.",
   "version": "2.0.5",
-  "homepage": "http://github.com/postaljs/postal.js",
+  "homepage": "https://github.com/songfei/postal.subscriber",
   "repository": {
     "type": "git",
-    "url": "git://github.com/postaljs/postal.js.git"
+    "url": "git://github.com/songfei/postal.subscriber.git"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
-  "author": "Jim Cowart (http://ifandelse.com)",
+  "author": "songfei (songfei.org@gmail.com)",
   "contributors": [
     {
       "name": "Jim Cowart",
@@ -95,7 +95,7 @@
   ],
   "bugs": {
     "email": "PleaseJustUseTheIssuesPage@github.com",
-    "url": "http://github.com/postaljs/postal.js/issues"
+    "url": "http://github.com/songfei/postal.subscriber/issues"
   },
   "directories": {
     "lib": "lib"

@@ -2,7 +2,14 @@
 
 ![](logo/postaljs.jpg "Special Thanks to Derick Bailey for the postal logo!")
 
-[![Build Status](https://travis-ci.org/postaljs/postal.js.svg?branch=master)](https://travis-ci.org/postaljs/postal.js)
+[![Build Status](https://travis-ci.org/songfei/postal.subscriber.svg?branch=master)](https://travis-ci.org/songfei/postal.subscriber)
+
+注意： 这个不是 postal插件，是对 postal的修改，请直接使用。
+
+## 主要修改： 添加订阅者
+
+添加的订阅者的概念，可与给某个订阅者单独发送消息。
+publish消息时，如果没有指定订阅者， 逻辑和原来相同， 会发送给所有订阅者。
 
 ## Version 2.0.5 ([MIT](http://www.opensource.org/licenses/mit-license))
 
