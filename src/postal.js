@@ -22,6 +22,7 @@
 	}
 	var _defaultConfig = {
 		DEFAULT_CHANNEL: "/",
+		DEFAULT_SUBSCRIBER: "/",
 		SYSTEM_CHANNEL: "postal",
 		enableSystemMessages: true,
 		cacheKeyDelimiter: "|",

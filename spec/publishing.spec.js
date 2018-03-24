@@ -2,14 +2,14 @@
 describe( "postal.js - publishing", function() {
 	describe( "when publishing to a new topic", function() {
 		it( "should create cache entry", function() {
-			postal.cache.should.not.have.property( "Doctor|Dont.Blink" ); //jshint ignore:line
+			postal.cache.should.not.have.property( "Doctor|/|Dont.Blink" ); //jshint ignore:line
 			var subA = postal.subscribe( { channel: "Doctor", topic: "Dont.Blink", callback: function() {} } );
 			postal.publish( {
 				channel: "Doctor",
 				topic: "Dont.Blink",
 				data: { weeping: true }
 			} );
-			postal.cache.should.have.property( "Doctor|Dont.Blink" );
+			postal.cache.should.have.property( "Doctor|/|Dont.Blink" );
 		} );
 	} );
 	describe( "when autoCompactResolver is set to false", function() {
@@ -169,7 +169,7 @@ describe( "postal.js - publishing", function() {
 					resolverNoCache: false
 				}
 			} );
-			postal.cache.should.have.ownProperty( "clara" + postal.configuration.cacheKeyDelimiter + "run.you.clever.boy" );
+			postal.cache.should.have.ownProperty("clara" + postal.configuration.cacheKeyDelimiter + "/" + postal.configuration.cacheKeyDelimiter + "run.you.clever.boy" );
 		} );
 		it( "should not add a subscription definition cache key if explicitly set to true", function() {
 			var subA = postal.subscribe( { channel: "clara", topic: "run.you.clever.*", callback: function() {} } );

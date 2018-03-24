@@ -36,7 +36,7 @@ describe( "postal.utils", function() {
 		before( function() {
 			subscription = postal.channel( "MyChannel" ).subscribe( "MyTopic", function() {} );
 			postal.channel( "MyChannel" ).publish( "MyTopic", "Oh Hai!" );
-			sub = postal.subscriptions.MyChannel.MyTopic[ 0 ];
+			sub = postal.subscriptions.MyChannel["/"].MyTopic[ 0 ];
 			resolver = postal.configuration.resolver.cache[ "MyTopic-MyTopic" ];
 			postal.reset();
 		} );
@@ -148,10 +148,10 @@ describe( "postal.utils", function() {
 				( typeof postal.subscriptions.B[ "some.topic" ] === "undefined" ).should.be.ok;
 			} );
 			it( "should have kept subscribers in other topics", function() {
-				postal.subscriptions.B[ "another.topic" ].length.should.equal( 1 );
+				postal.subscriptions.B["/"][ "another.topic" ].length.should.equal( 1 );
 			} );
 			it( "should have kept subscribers in other channels", function() {
-				postal.subscriptions.A[ "some.topic" ].length.should.equal( 1 );
+				postal.subscriptions.A["/"][ "some.topic" ].length.should.equal( 1 );
 			} );
 			it( "should have not invoked subscriber callbacks when publishing", function() {
 				res.should.equal( 1 );
@@ -202,7 +202,7 @@ describe( "postal.utils", function() {
 				postal.reset();
 			} );
 			it( "should have removed correct subscribers", function() {
-				( typeof postal.subscriptions.B[ "even.more.topics" ] === "undefined" ).should.be.ok;
+				(typeof postal.subscriptions.B["/"][ "even.more.topics" ] === "undefined" ).should.be.ok;
 			} );
 			it( "should have not invoked subscriber callbacks when publishing", function() {
 				res.should.equal( 1 );
@@ -251,7 +251,7 @@ describe( "postal.utils", function() {
 				postal.reset();
 			} );
 			it( "should have removed correct subscribers", function() {
-				( typeof postal.subscriptions.B[ "even.more.topics" ] === "undefined" ).should.be.ok;
+				(typeof postal.subscriptions.B["/"][ "even.more.topics" ] === "undefined" ).should.be.ok;
 			} );
 			it( "should have not invoked subscriber callbacks when publishing", function() {
 				res.should.equal( 1 );
@@ -299,7 +299,7 @@ describe( "postal.utils", function() {
 			it( "should have removed correct subscribers", function() {
 				( typeof postal.subscriptions.B === "undefined" ).should.be.ok;
 				( typeof postal.subscriptions.B === "undefined" ).should.be.ok;
-				( postal.subscriptions.A[ "some.topic" ] ).should.be.ok;
+				(postal.subscriptions.A["/"][ "some.topic" ] ).should.be.ok;
 				postal.getSubscribersFor( { channel: "B", thingy: "some/string/[value]" } ).length.should.equal( 0 );
 			} );
 			it( "should have not invoked subscriber callbacks when publishing", function() {
@@ -349,7 +349,7 @@ describe( "postal.utils", function() {
 			it( "should have removed correct subscribers", function() {
 				( typeof postal.subscriptions.B === "undefined" ).should.be.ok;
 				( typeof postal.subscriptions.B === "undefined" ).should.be.ok;
-				( postal.subscriptions.A[ "some.topic" ] ).should.be.ok;
+				(postal.subscriptions.A["/"][ "some.topic" ] ).should.be.ok;
 				postal.getSubscribersFor( { channel: "B", thingy: objectyObj } ).length.should.equal( 0 );
 			} );
 			it( "should have not invoked subscriber callbacks when publishing", function() {

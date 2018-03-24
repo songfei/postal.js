@@ -1,12 +1,18 @@
 /* global postal, _ */
-var SubscriptionDefinition = function( channel, topic, callback ) {
-	if ( arguments.length !== 3 ) {
+var SubscriptionDefinition = function( channel, subscriber, topic, callback ) {
+	if ( arguments.length !== 4 ) {
 		throw new Error( "You must provide a channel, topic and callback when creating a SubscriptionDefinition instance." );
 	}
+
+	if ( subscriber.length === 0 ) {
+		throw new Error( "Subscriber cannot be empty" );
+	}
+
 	if ( topic.length === 0 ) {
 		throw new Error( "Topics cannot be empty" );
 	}
 	this.channel = channel;
+	this.subscriber = subscriber;
 	this.topic = topic;
 	this.callback = callback;
 	this.pipeline = [];

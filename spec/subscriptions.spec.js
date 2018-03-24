@@ -57,12 +57,13 @@ describe( "postal.js - subscriptions", function() {
 		it( "should create a subscriptions lookup", function() {
 			var result;
 			var sub = subFactory.next( NO_OP );
-			postal.subscriptions[ sub.channel ][ sub.topic ].should.be.an.Array.and.have.lengthOf( 1 );
+			postal.subscriptions[sub.channel][sub.subscriber][ sub.topic ].should.be.an.Array.and.have.lengthOf( 1 );
 		} );
 		it( "should update lookup cache when new subscribers are added", function() {
 			var channel = "lookup-update";
 			var topic = "something.important";
-			var cacheKey = channel + "|" + topic;
+			var subscriber = "/";
+			var cacheKey = channel + "|" + subscriber + "|" + topic;
 			var stubA = sinon.stub();
 			var subA = postal.subscribe({ channel: channel, topic: topic, callback: stubA });
 			var stubB = sinon.stub();
